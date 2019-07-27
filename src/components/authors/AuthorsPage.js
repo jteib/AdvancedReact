@@ -56,10 +56,6 @@ class AuthorsPage extends Component {
               onDeleteClick={this.handleDeleteAuthor}
               authors={this.props.authors}
             />
-
-            {this.props.authors.map(author => (
-              <div key={author.id}>{author.name}</div>
-            ))}
           </>
         )}
       </>
