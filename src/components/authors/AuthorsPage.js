@@ -8,6 +8,8 @@ import AuthorList from "./AuthorList";
 import Spinner from "../common/Spinner";
 import { toast } from "react-toastify";
 
+//added comment to test gpg key
+
 class AuthorsPage extends Component {
   state = {
     redirectToAddAuthorPage: false
