@@ -6,7 +6,7 @@
 
 ## Instructions
 
-1. **Clone this Repo** `https://github.com/jteib/ReactReduxPractice.git`
-2. **Move to this directory.** - `cd ReactReduxPractice`
+1. **Clone this Repo** `https://github.com/jteib/AdvancedReact.git`
+2. **Move to this directory.** - `cd AdvancedReact`
 3. **Install Dependencies.** - `npm install`
 4. **Run it!!** - `npm start`
