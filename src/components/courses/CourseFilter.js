@@ -1,22 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
-import {
-  filterText,
-  startYear,
-  endYear
-} from "../../redux/actions/filterActions";
+import PropTypes from "prop-types";
+import { bindActionCreators } from "redux";
+import * as filterActions from "../../redux/actions/filterActions";
 
 class CourseFilters extends React.Component {
-  constructor(props) {
-    super(props);
-    this.filterYear = this.filterYear.bind(this);
-  }
+  filterYear = this.filterYear.bind(this);
 
   filterYear() {
+    const { actions } = this.props;
     let start = +this.startYear.value !== 0 ? +this.startYear.value : undefined;
     let end = +this.endYear.value !== 0 ? +this.endYear.value : undefined;
-    this.props.dispatch(startYear(start));
-    this.props.dispatch(endYear(end));
+    actions.startYear(start);
+    actions.endYear(end);
   }
 
   render() {
@@ -25,9 +21,8 @@ class CourseFilters extends React.Component {
         <input
           type="text"
           placeholder="search"
-          value={this.props.filters.text}
           onChange={e => {
-            this.props.dispatch(filterText(e.target.value));
+            this.props.actions.filterText(e.target.value);
           }}
         />
         <br />
@@ -52,10 +47,27 @@ class CourseFilters extends React.Component {
   }
 }
 
+CourseFilters.propTypes = {
+  actions: PropTypes.object.isRequired
+};
+
 const mapStateToProps = state => {
   return {
     filters: state.filters
   };
 };
 
-export default connect(mapStateToProps)(CourseFilters);
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: {
+      filterText: bindActionCreators(filterActions.filterText, dispatch),
+      startYear: bindActionCreators(filterActions.startYear, dispatch),
+      endYear: bindActionCreators(filterActions.endYear, dispatch)
+    }
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CourseFilters);

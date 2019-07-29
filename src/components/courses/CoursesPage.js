@@ -18,7 +18,6 @@ class CoursesPage extends Component {
 
   componentDidMount() {
     const { courses, authors, actions } = this.props;
-    //debugger;
     if (courses.length === 0) {
       actions.loadCourses().catch(error => {
         alert("loading courses failed" + error);
@@ -32,7 +31,6 @@ class CoursesPage extends Component {
   }
 
   handleDeleteCourse = course => {
-    console.log(this.sortedCourses);
     toast.success("Course Deleted"); //optimistic!!
     this.props.actions.deleteCourse(course).catch(error => {
       toast.error("Delete Failed!" + error.message, { autoClose: false });
@@ -42,9 +40,7 @@ class CoursesPage extends Component {
   render() {
     return (
       <>
-        {this.state.redirectToAddCoursePage && (
-          <Redirect to="/course" />
-        ) /*this only works if left side is true, click button below to change true*/}
+        {this.state.redirectToAddCoursePage && <Redirect to="/course" />}
         {this.props.courses.length === 1 ? (
           <h2>{this.props.courses.length} Course</h2>
         ) : (
@@ -125,4 +121,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CoursesPage); //two function calls here in series
+)(CoursesPage);

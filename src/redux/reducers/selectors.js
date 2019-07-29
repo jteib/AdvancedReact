@@ -22,7 +22,7 @@ export const getVisibleCourses = (
     .filter(course => {
       const textMatch =
         course.title.toLowerCase().includes(text.toLowerCase()) ||
-        course.author.toLowerCase().includes(text.toLowerCase());
+        course.authorName.toLowerCase().includes(text.toLowerCase());
 
       const startYearMatch =
         typeof startYear !== "number" || startYear <= course.added;

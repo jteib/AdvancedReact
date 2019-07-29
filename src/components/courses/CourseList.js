@@ -26,11 +26,9 @@ const CourseList = ({ courses, onDeleteClick }) => (
               </a>
             </td>
             <td>
-              <h4>
-                <Link to={"/course/" + course.slug}>
-                  {course.title} ({course.added})
-                </Link>
-              </h4>
+              <Link to={"/course/" + course.slug}>
+                {course.title} ({course.added})
+              </Link>
             </td>
             <td>{course.authorName}</td>
             <td>{course.category}</td>
@@ -51,8 +49,7 @@ const CourseList = ({ courses, onDeleteClick }) => (
 
 CourseList.propTypes = {
   courses: PropTypes.array.isRequired,
-  onDeleteClick: PropTypes.func.isRequired,
-  onClick: PropTypes.func.isRequired
+  onDeleteClick: PropTypes.func.isRequired
 };
 
 export default CourseList;

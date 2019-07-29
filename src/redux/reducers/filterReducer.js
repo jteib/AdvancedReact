@@ -4,7 +4,6 @@ import { initialState } from "./initialState";
 export default (state = initialState.filters, action) => {
   switch (action.type) {
     case types.FILTER_TEXT:
-      debugger;
       return {
         ...state,
         text: action.text
