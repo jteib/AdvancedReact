@@ -16,6 +16,8 @@ class CoursesPage extends Component {
     redirectToAddCoursePage: false
   };
 
+//handleTextSearch = this.handleTextSearch.bind(this);
+
   componentDidMount() {
     const { courses, authors, actions } = this.props;
     if (courses.length === 0) {
@@ -29,6 +31,10 @@ class CoursesPage extends Component {
       });
     }
   }
+
+  // handleTextSearch(e) {
+  //   this.props.actions.filterText(e.target.value);
+  // }
 
   handleDeleteCourse = course => {
     toast.success("Course Deleted"); //optimistic!!
@@ -104,6 +110,7 @@ function mapStateToProps(state) {
   return {
     courses,
     authors: state.authors,
+    //filters: state.filters,
     loading: state.apiCallsInProgress > 0
   };
 }
@@ -114,6 +121,7 @@ function mapDispatchToProps(dispatch) {
       loadCourses: bindActionCreators(courseActions.loadCourses, dispatch),
       loadAuthors: bindActionCreators(authorActions.loadAuthors, dispatch),
       deleteCourse: bindActionCreators(courseActions.deleteCourse, dispatch)
+      //filterText: bindActionCreators(filterActions.filterText, dispatch)
     }
   };
 }
