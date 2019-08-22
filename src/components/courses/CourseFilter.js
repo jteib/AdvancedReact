@@ -71,3 +71,29 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(CourseFilters);
+
+
+//this is the new file
+// import React from "react";
+// import TextInput from "../common/TextInput";
+// import PropTypes from "prop-types";
+
+// const CourseFilters = ({ onChange }) => {
+//   return (
+//     <div style={{ marginBottom: 15 }}>
+//       <TextInput
+//         name="text"
+//         label=""
+//         placeholder="search"
+//         onChange={onChange}
+//       />
+//       <br />
+//     </div>
+//   );
+// };
+
+// CourseFilters.propTypes = {
+//   onChange: PropTypes.func.isRequired
+// };
+
+// export default CourseFilters;
